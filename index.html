@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best Cleaning Services in India | Home & Office Cleaning</title>
-
-  <meta name="description" content="Professional home and office cleaning services. Book trusted cleaners near you. Affordable, reliable and fast service.">
+  <title>Best Cleaning Services in India</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -72,21 +70,7 @@
       box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
     }
 
-    .toggle-box {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .toggle-btn {
-      padding: 10px 20px;
-      background: red;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    /* FULL SCREEN AD */
+    /* 🔥 FULL SCREEN AD */
     #adSection {
       position: fixed;
       top: 0;
@@ -96,20 +80,23 @@
       display: none;
       justify-content: center;
       align-items: center;
-      background: #310300;
+      background: #5a0f0f; /* image bg match */
       cursor: pointer;
       z-index: 9999;
     }
 
+    /* ✅ NO CROP IMAGE FIX */
     #adSection img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* 🔥 main fix */
+      max-width: 100%;
+      max-height: 100%;
       pointer-events: none;
     }
 
-    /* 📱 MOBILE + TABLET ONLY (SHOW AD) */
-    @media (max-width: 1024px) {
+    /* 📱 ONLY MOBILE SHOW AD */
+    @media (max-width: 767px) {
       #adSection {
         display: flex;
       }
@@ -125,83 +112,66 @@
 
 <div class="container" id="container">
 
-  <div class="toggle-box">
-    <button class="toggle-btn" onclick="toggleAd()">Switch Mode</button>
-  </div>
+  <section class="hero">
+    <h1>Professional Cleaning Services</h1>
+    <p>Book trusted home & office cleaning services at affordable prices.</p>
+    <a href="https://wa.me/918851521863" class="btn">Book Now</a>
+  </section>
 
-  <div id="mainContent">
+  <section class="services">
+    <div class="card">
+      <h3>Home Cleaning</h3>
+      <p>Deep cleaning for kitchen, bathroom, and full house.</p>
+    </div>
 
-    <section class="hero">
-      <h1>Professional Cleaning Services</h1>
-      <p>Book trusted home & office cleaning services at affordable prices.</p>
-      <a href="https://wa.me/918851521863" class="btn">Book Now</a>
-    </section>
+    <div class="card">
+      <h3>Office Cleaning</h3>
+      <p>Professional office cleaning services.</p>
+    </div>
 
-    <section class="services">
-      <div class="card">
-        <h3>Home Cleaning</h3>
-        <p>Deep cleaning for kitchen, bathroom, and full house.</p>
-      </div>
+    <div class="card">
+      <h3>Sofa & Carpet</h3>
+      <p>Advanced cleaning for sofa and carpets.</p>
+    </div>
 
-      <div class="card">
-        <h3>Office Cleaning</h3>
-        <p>Professional office cleaning services for a healthy workspace.</p>
-      </div>
-
-      <div class="card">
-        <h3>Sofa & Carpet</h3>
-        <p>Advanced cleaning for sofa, carpets and upholstery.</p>
-      </div>
-
-      <div class="card">
-        <h3>Bathroom Cleaning</h3>
-        <p>Remove stains, germs and bad odor effectively.</p>
-      </div>
-    </section>
-
-  </div>
+    <div class="card">
+      <h3>Bathroom Cleaning</h3>
+      <p>Remove stains and germs effectively.</p>
+    </div>
+  </section>
 
 </div>
 
 <footer id="footer">
-  <p>© 2026 CleanPro Services | All Rights Reserved</p>
+  <p>© 2026 CleanPro Services</p>
 </footer>
 
-<!-- AD -->
+<!-- 🔥 AD SECTION -->
 <div id="adSection" onclick="goToWhatsApp()">
   <img src="innings1111.png" alt="Offer">
 </div>
 
 <script>
-  let isAdMode = true;
-
-  function isMobileOrTablet() {
-    return window.innerWidth <= 1024;
+  function isMobile() {
+    return window.innerWidth <= 767;
   }
 
   function updateUI() {
-
-    if (isMobileOrTablet() && isAdMode) {
-      // SHOW AD (mobile only)
+    if (isMobile()) {
+      // 📱 MOBILE → show ad
       document.getElementById("header").style.display = "none";
       document.getElementById("footer").style.display = "none";
       document.getElementById("container").style.display = "none";
       document.getElementById("adSection").style.display = "flex";
       document.body.style.overflow = "hidden";
     } else {
-      // SHOW WEBSITE (desktop OR after toggle)
+      // 💻 DESKTOP → show website
       document.getElementById("header").style.display = "block";
       document.getElementById("footer").style.display = "block";
       document.getElementById("container").style.display = "block";
       document.getElementById("adSection").style.display = "none";
       document.body.style.overflow = "auto";
     }
-
-  }
-
-  function toggleAd() {
-    isAdMode = !isAdMode;
-    updateUI();
   }
 
   function goToWhatsApp() {
